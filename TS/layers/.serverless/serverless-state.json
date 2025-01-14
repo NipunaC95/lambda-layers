@@ -1,0 +1,114 @@
+{
+  "service": {
+    "service": "layers",
+    "serviceObject": {
+      "name": "layers"
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs18.x",
+      "region": "us-east-1",
+      "stage": "dev",
+      "versionFunctions": true,
+      "compiledCloudFormationTemplate": {
+        "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "The AWS CloudFormation template for this Serverless application",
+        "Resources": {
+          "HelpersLambdaLayer": {
+            "Type": "AWS::Lambda::LayerVersion",
+            "Properties": {
+              "Content": {
+                "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
+                "S3Key": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z/helpers.zip"
+              },
+              "LayerName": "helpers"
+            }
+          }
+        },
+        "Outputs": {
+          "ServerlessDeploymentBucketName": {
+            "Value": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
+            "Export": {
+              "Name": "sls-layers-dev-ServerlessDeploymentBucketName"
+            }
+          },
+          "HelpersLambdaLayerQualifiedArn": {
+            "Description": "Current Lambda layer version",
+            "Value": {
+              "Ref": "HelpersLambdaLayer"
+            },
+            "Export": {
+              "Name": "sls-layers-dev-HelpersLambdaLayerQualifiedArn"
+            }
+          },
+          "HelpersLambdaLayerHash": {
+            "Description": "Current Lambda layer hash",
+            "Value": "e3bd288e749009a043201ea6ca39ee25457663b9",
+            "Export": {
+              "Name": "sls-layers-dev-HelpersLambdaLayerHash"
+            }
+          },
+          "HelpersLambdaLayerS3Key": {
+            "Description": "Current Lambda layer S3Key",
+            "Value": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z/helpers.zip",
+            "Export": {
+              "Name": "sls-layers-dev-HelpersLambdaLayerS3Key"
+            }
+          },
+          "HelpersLayerExport": {
+            "Value": {
+              "Ref": "HelpersLambdaLayer"
+            },
+            "Export": {
+              "Name": "HelpersLambdaLayer"
+            }
+          }
+        }
+      }
+    },
+    "pluginsData": {},
+    "functions": {},
+    "resources": {
+      "Outputs": {
+        "HelpersLayerExport": {
+          "Value": {
+            "Ref": "HelpersLambdaLayer"
+          },
+          "Export": {
+            "Name": "HelpersLambdaLayer"
+          }
+        }
+      },
+      "Resources": {}
+    },
+    "configValidationMode": "warn",
+    "serviceFilename": "serverless.yaml",
+    "initialServerlessConfig": {
+      "service": "layers",
+      "frameworkVersion": "4",
+      "provider": {
+        "$ref": "$[\"service\"][\"provider\"]"
+      },
+      "layers": {
+        "helpers": {
+          "path": "logging",
+          "package": {
+            "artifact": "F:\\full_stack\\aws-serverless\\layers\\TS\\layers\\.serverless\\helpers.zip"
+          }
+        }
+      },
+      "resources": {
+        "$ref": "$[\"service\"][\"resources\"]"
+      }
+    },
+    "appId": null,
+    "orgId": null,
+    "layers": {
+      "$ref": "$[\"service\"][\"initialServerlessConfig\"][\"layers\"]"
+    }
+  },
+  "package": {
+    "artifactDirectoryName": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z",
+    "artifact": ""
+  }
+}

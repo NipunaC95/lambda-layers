@@ -11,7 +11,7 @@
     "declaration": true,
   },
   "include": [
-    "./logging/nodejs/node_modules/helpers/src/**/*.ts"
+    "./src/**/*.ts"
   ],
   "exclude": []
   }
