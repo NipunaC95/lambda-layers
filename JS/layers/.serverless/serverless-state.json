@@ -14,14 +14,14 @@
         "AWSTemplateFormatVersion": "2010-09-09",
         "Description": "The AWS CloudFormation template for this Serverless application",
         "Resources": {
-          "HelpersLambdaLayer": {
+          "LoggingLambdaLayer": {
             "Type": "AWS::Lambda::LayerVersion",
             "Properties": {
               "Content": {
                 "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
-                "S3Key": "serverless/layers/dev/1736844493527-2025-01-14T08:48:13.527Z/helpers.zip"
+                "S3Key": "serverless/layers/dev/1736819141865-2025-01-14T01:45:41.865Z/logging.zip"
               },
-              "LayerName": "helpers"
+              "LayerName": "logging"
             }
           }
         },
@@ -32,27 +32,35 @@
               "Name": "sls-layers-dev-ServerlessDeploymentBucketName"
             }
           },
-          "HelpersLambdaLayerQualifiedArn": {
+          "LoggingLambdaLayerQualifiedArn": {
             "Description": "Current Lambda layer version",
             "Value": {
-              "Ref": "HelpersLambdaLayer"
+              "Ref": "LoggingLambdaLayer"
             },
             "Export": {
-              "Name": "sls-layers-dev-HelpersLambdaLayerQualifiedArn"
+              "Name": "sls-layers-dev-LoggingLambdaLayerQualifiedArn"
             }
           },
-          "HelpersLambdaLayerHash": {
+          "LoggingLambdaLayerHash": {
             "Description": "Current Lambda layer hash",
-            "Value": "41bcc553bd37389e5f6c169975cefe94c72282c2",
+            "Value": "eff992d39505fba895f171de6e00b9018a95c967",
             "Export": {
-              "Name": "sls-layers-dev-HelpersLambdaLayerHash"
+              "Name": "sls-layers-dev-LoggingLambdaLayerHash"
             }
           },
-          "HelpersLambdaLayerS3Key": {
+          "LoggingLambdaLayerS3Key": {
             "Description": "Current Lambda layer S3Key",
-            "Value": "serverless/layers/dev/1736844493527-2025-01-14T08:48:13.527Z/helpers.zip",
+            "Value": "serverless/layers/dev/1736819141865-2025-01-14T01:45:41.865Z/logging.zip",
             "Export": {
-              "Name": "sls-layers-dev-HelpersLambdaLayerS3Key"
+              "Name": "sls-layers-dev-LoggingLambdaLayerS3Key"
+            }
+          },
+          "LoggingLayerExport": {
+            "Value": {
+              "Ref": "LoggingLambdaLayer"
+            },
+            "Export": {
+              "Name": "LoggingLambdaLayer"
             }
           }
         }
@@ -60,6 +68,19 @@
     },
     "pluginsData": {},
     "functions": {},
+    "resources": {
+      "Outputs": {
+        "LoggingLayerExport": {
+          "Value": {
+            "Ref": "LoggingLambdaLayer"
+          },
+          "Export": {
+            "Name": "LoggingLambdaLayer"
+          }
+        }
+      },
+      "Resources": {}
+    },
     "configValidationMode": "warn",
     "serviceFilename": "serverless.yaml",
     "initialServerlessConfig": {
@@ -69,12 +90,16 @@
         "$ref": "$[\"service\"][\"provider\"]"
       },
       "layers": {
-        "helpers": {
+        "logging": {
           "path": "logging",
           "package": {
-            "artifact": "F:\\full_stack\\aws-serverless\\layers\\TS\\layers\\.serverless\\helpers.zip"
-          }
+            "artifact": "F:\\full_stack\\aws-serverless\\layers\\layers\\.serverless\\logging.zip"
+          },
+          "artifactAlreadyUploaded": true
         }
+      },
+      "resources": {
+        "$ref": "$[\"service\"][\"resources\"]"
       }
     },
     "appId": null,
@@ -84,7 +109,7 @@
     }
   },
   "package": {
-    "artifactDirectoryName": "serverless/layers/dev/1736844493527-2025-01-14T08:48:13.527Z",
+    "artifactDirectoryName": "serverless/layers/dev/1736819679433-2025-01-14T01:54:39.433Z",
     "artifact": ""
   }
 }

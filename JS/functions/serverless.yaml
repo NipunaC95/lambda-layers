@@ -20,4 +20,4 @@ functions:
           method: get
           cors: true
     layers:
-      - ${cf:layers-${self:provider.stage}.HelpersLayerExport}
+      - ${cf:layers-${self:provider.stage}.LoggingLayerExport}

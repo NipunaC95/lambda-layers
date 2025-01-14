@@ -1,5 +1,5 @@
 {
-  "F:\\full_stack\\aws-serverless\\layers\\TS\\functions": {
+  "F:\\full_stack\\aws-serverless\\layers\\functions": {
     "versionSfCore": null,
     "versionFramework": "4.4.18",
     "isWithinCompose": false,
@@ -111,7 +111,7 @@
                     "Properties": {
                       "Code": {
                         "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
-                        "S3Key": "serverless/todos/dev/1736845097932-2025-01-14T08:58:17.932Z/todos.zip"
+                        "S3Key": "serverless/todos/dev/1736819746339-2025-01-14T01:55:46.339Z/todos.zip"
                       },
                       "Handler": "src/handler.main",
                       "Runtime": "nodejs18.x",
@@ -130,21 +130,21 @@
                         ]
                       },
                       "Layers": [
-                        "arn:aws:lambda:us-east-1:975050049562:layer:helpers:2"
+                        "arn:aws:lambda:us-east-1:975050049562:layer:logging:4"
                       ]
                     },
                     "DependsOn": [
                       "HelloLogGroup"
                     ]
                   },
-                  "HelloLambdaVersionnjXF9x3kF0NL8eKKF6q0zvZQJxsz1S525ALQRKnrc6Y": {
+                  "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I": {
                     "Type": "AWS::Lambda::Version",
                     "DeletionPolicy": "Retain",
                     "Properties": {
                       "FunctionName": {
                         "Ref": "HelloLambdaFunction"
                       },
-                      "CodeSha256": "dB83gT28jjkrq/JvP/kBoanlCTjMVNQwX9a0aBMtd88="
+                      "CodeSha256": "yTgFR1qttreHT5aAeU+bAxHcHbQxMvJAB3wNqINqsag="
                     }
                   },
                   "ApiGatewayRestApi": {
@@ -265,7 +265,7 @@
                       "HelloLambdaPermissionApiGateway"
                     ]
                   },
-                  "ApiGatewayDeployment1736845088354": {
+                  "ApiGatewayDeployment1736819736039": {
                     "Type": "AWS::ApiGateway::Deployment",
                     "Properties": {
                       "RestApiId": {
@@ -326,7 +326,7 @@
                   "HelloLambdaFunctionQualifiedArn": {
                     "Description": "Current Lambda function version",
                     "Value": {
-                      "Ref": "HelloLambdaVersionnjXF9x3kF0NL8eKKF6q0zvZQJxsz1S525ALQRKnrc6Y"
+                      "Ref": "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I"
                     },
                     "Export": {
                       "Name": "sls-todos-dev-HelloLambdaFunctionQualifiedArn"
@@ -395,7 +395,7 @@
                   }
                 ],
                 "layers": [
-                  "arn:aws:lambda:us-east-1:975050049562:layer:helpers:2"
+                  "arn:aws:lambda:us-east-1:975050049562:layer:logging:4"
                 ],
                 "name": "todos-dev-hello",
                 "environment": {
@@ -406,11 +406,11 @@
                 "timeout": 6,
                 "runtime": "nodejs18.x",
                 "vpc": {},
-                "versionLogicalId": "HelloLambdaVersionnjXF9x3kF0NL8eKKF6q0zvZQJxsz1S525ALQRKnrc6Y"
+                "versionLogicalId": "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I"
               }
             }
           },
-          "configFileDirPath": "F:\\full_stack\\aws-serverless\\layers\\TS\\functions",
+          "configFileDirPath": "F:\\full_stack\\aws-serverless\\layers\\functions",
           "config": {
             "type": "opt"
           },
@@ -425,6 +425,426 @@
         "resolvers": {}
       },
       "default-aws-credential-resolver": "<REDACTED>",
+      "self": {
+        "instance": {
+          "credentials": "<REDACTED>",
+          "serviceConfigFile": {
+            "service": "todos",
+            "frameworkVersion": "4",
+            "provider": {
+              "name": "aws",
+              "runtime": "nodejs18.x",
+              "region": "us-east-1",
+              "stage": "dev",
+              "versionFunctions": true,
+              "compiledCloudFormationTemplate": {
+                "AWSTemplateFormatVersion": "2010-09-09",
+                "Description": "The AWS CloudFormation template for this Serverless application",
+                "Resources": {
+                  "HelloLogGroup": {
+                    "Type": "AWS::Logs::LogGroup",
+                    "Properties": {
+                      "LogGroupName": "/aws/lambda/todos-dev-hello"
+                    }
+                  },
+                  "IamRoleLambdaExecution": {
+                    "Type": "AWS::IAM::Role",
+                    "Properties": {
+                      "AssumeRolePolicyDocument": {
+                        "Version": "2012-10-17",
+                        "Statement": [
+                          {
+                            "Effect": "Allow",
+                            "Principal": {
+                              "Service": [
+                                "lambda.amazonaws.com"
+                              ]
+                            },
+                            "Action": [
+                              "sts:AssumeRole"
+                            ]
+                          }
+                        ]
+                      },
+                      "Policies": [
+                        {
+                          "PolicyName": {
+                            "Fn::Join": [
+                              "-",
+                              [
+                                "todos",
+                                "dev",
+                                "lambda"
+                              ]
+                            ]
+                          },
+                          "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                              {
+                                "Effect": "Allow",
+                                "Action": [
+                                  "logs:CreateLogStream",
+                                  "logs:CreateLogGroup",
+                                  "logs:TagResource"
+                                ],
+                                "Resource": [
+                                  {
+                                    "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/todos-dev*:*"
+                                  }
+                                ]
+                              },
+                              {
+                                "Effect": "Allow",
+                                "Action": [
+                                  "logs:PutLogEvents"
+                                ],
+                                "Resource": [
+                                  {
+                                    "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/todos-dev*:*:*"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "Path": "/",
+                      "RoleName": {
+                        "Fn::Join": [
+                          "-",
+                          [
+                            "todos",
+                            "dev",
+                            {
+                              "Ref": "AWS::Region"
+                            },
+                            "lambdaRole"
+                          ]
+                        ]
+                      }
+                    }
+                  },
+                  "HelloLambdaFunction": {
+                    "Type": "AWS::Lambda::Function",
+                    "Properties": {
+                      "Code": {
+                        "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
+                        "S3Key": "serverless/todos/dev/1736819746339-2025-01-14T01:55:46.339Z/todos.zip"
+                      },
+                      "Handler": "src/handler.main",
+                      "Runtime": "nodejs18.x",
+                      "FunctionName": "todos-dev-hello",
+                      "MemorySize": 1024,
+                      "Timeout": 6,
+                      "Environment": {
+                        "Variables": {
+                          "NODE_OPTIONS": "--enable-source-maps"
+                        }
+                      },
+                      "Role": {
+                        "Fn::GetAtt": [
+                          "IamRoleLambdaExecution",
+                          "Arn"
+                        ]
+                      },
+                      "Layers": [
+                        "arn:aws:lambda:us-east-1:975050049562:layer:logging:4"
+                      ]
+                    },
+                    "DependsOn": [
+                      "HelloLogGroup"
+                    ]
+                  },
+                  "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I": {
+                    "Type": "AWS::Lambda::Version",
+                    "DeletionPolicy": "Retain",
+                    "Properties": {
+                      "FunctionName": {
+                        "Ref": "HelloLambdaFunction"
+                      },
+                      "CodeSha256": "yTgFR1qttreHT5aAeU+bAxHcHbQxMvJAB3wNqINqsag="
+                    }
+                  },
+                  "ApiGatewayRestApi": {
+                    "Type": "AWS::ApiGateway::RestApi",
+                    "Properties": {
+                      "Name": "dev-todos",
+                      "EndpointConfiguration": {
+                        "Types": [
+                          "EDGE"
+                        ]
+                      },
+                      "Policy": ""
+                    }
+                  },
+                  "ApiGatewayResourceHello": {
+                    "Type": "AWS::ApiGateway::Resource",
+                    "Properties": {
+                      "ParentId": {
+                        "Fn::GetAtt": [
+                          "ApiGatewayRestApi",
+                          "RootResourceId"
+                        ]
+                      },
+                      "PathPart": "hello",
+                      "RestApiId": {
+                        "Ref": "ApiGatewayRestApi"
+                      }
+                    }
+                  },
+                  "ApiGatewayMethodHelloOptions": {
+                    "Type": "AWS::ApiGateway::Method",
+                    "Properties": {
+                      "AuthorizationType": "NONE",
+                      "HttpMethod": "OPTIONS",
+                      "MethodResponses": [
+                        {
+                          "StatusCode": "200",
+                          "ResponseParameters": {
+                            "method.response.header.Access-Control-Allow-Origin": true,
+                            "method.response.header.Access-Control-Allow-Headers": true,
+                            "method.response.header.Access-Control-Allow-Methods": true
+                          },
+                          "ResponseModels": {}
+                        }
+                      ],
+                      "RequestParameters": {},
+                      "Integration": {
+                        "Type": "MOCK",
+                        "RequestTemplates": {
+                          "application/json": "{statusCode:200}"
+                        },
+                        "ContentHandling": "CONVERT_TO_TEXT",
+                        "IntegrationResponses": [
+                          {
+                            "StatusCode": "200",
+                            "ResponseParameters": {
+                              "method.response.header.Access-Control-Allow-Origin": "'*'",
+                              "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
+                              "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+                            },
+                            "ResponseTemplates": {
+                              "application/json": ""
+                            }
+                          }
+                        ]
+                      },
+                      "ResourceId": {
+                        "Ref": "ApiGatewayResourceHello"
+                      },
+                      "RestApiId": {
+                        "Ref": "ApiGatewayRestApi"
+                      }
+                    }
+                  },
+                  "ApiGatewayMethodHelloGet": {
+                    "Type": "AWS::ApiGateway::Method",
+                    "Properties": {
+                      "HttpMethod": "GET",
+                      "RequestParameters": {},
+                      "ResourceId": {
+                        "Ref": "ApiGatewayResourceHello"
+                      },
+                      "RestApiId": {
+                        "Ref": "ApiGatewayRestApi"
+                      },
+                      "ApiKeyRequired": "<REDACTED>",
+                      "AuthorizationType": "NONE",
+                      "Integration": {
+                        "IntegrationHttpMethod": "POST",
+                        "Type": "AWS_PROXY",
+                        "Uri": {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "arn:",
+                              {
+                                "Ref": "AWS::Partition"
+                              },
+                              ":apigateway:",
+                              {
+                                "Ref": "AWS::Region"
+                              },
+                              ":lambda:path/2015-03-31/functions/",
+                              {
+                                "Fn::GetAtt": [
+                                  "HelloLambdaFunction",
+                                  "Arn"
+                                ]
+                              },
+                              "/invocations"
+                            ]
+                          ]
+                        }
+                      },
+                      "MethodResponses": []
+                    },
+                    "DependsOn": [
+                      "HelloLambdaPermissionApiGateway"
+                    ]
+                  },
+                  "ApiGatewayDeployment1736819736039": {
+                    "Type": "AWS::ApiGateway::Deployment",
+                    "Properties": {
+                      "RestApiId": {
+                        "Ref": "ApiGatewayRestApi"
+                      },
+                      "StageName": "dev"
+                    },
+                    "DependsOn": [
+                      "ApiGatewayMethodHelloOptions",
+                      "ApiGatewayMethodHelloGet"
+                    ]
+                  },
+                  "HelloLambdaPermissionApiGateway": {
+                    "Type": "AWS::Lambda::Permission",
+                    "Properties": {
+                      "FunctionName": {
+                        "Fn::GetAtt": [
+                          "HelloLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "Action": "lambda:InvokeFunction",
+                      "Principal": "apigateway.amazonaws.com",
+                      "SourceArn": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":execute-api:",
+                            {
+                              "Ref": "AWS::Region"
+                            },
+                            ":",
+                            {
+                              "Ref": "AWS::AccountId"
+                            },
+                            ":",
+                            {
+                              "Ref": "ApiGatewayRestApi"
+                            },
+                            "/*/*"
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                },
+                "Outputs": {
+                  "ServerlessDeploymentBucketName": {
+                    "Value": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
+                    "Export": {
+                      "Name": "sls-todos-dev-ServerlessDeploymentBucketName"
+                    }
+                  },
+                  "HelloLambdaFunctionQualifiedArn": {
+                    "Description": "Current Lambda function version",
+                    "Value": {
+                      "Ref": "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I"
+                    },
+                    "Export": {
+                      "Name": "sls-todos-dev-HelloLambdaFunctionQualifiedArn"
+                    }
+                  },
+                  "ServiceEndpoint": {
+                    "Description": "URL of the service endpoint",
+                    "Value": {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "https://",
+                          {
+                            "Ref": "ApiGatewayRestApi"
+                          },
+                          ".execute-api.",
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          ".",
+                          {
+                            "Ref": "AWS::URLSuffix"
+                          },
+                          "/dev"
+                        ]
+                      ]
+                    },
+                    "Export": {
+                      "Name": "sls-todos-dev-ServiceEndpoint"
+                    }
+                  }
+                }
+              },
+              "vpc": {}
+            },
+            "plugins": [
+              "serverless-offline"
+            ],
+            "functions": {
+              "hello": {
+                "handler": "src/handler.main",
+                "events": [
+                  {
+                    "http": {
+                      "path": "hello",
+                      "method": "get",
+                      "cors": {
+                        "origin": "*",
+                        "methods": [
+                          "OPTIONS",
+                          "GET"
+                        ],
+                        "headers": [
+                          "Content-Type",
+                          "X-Amz-Date",
+                          "Authorization",
+                          "X-Api-Key",
+                          "X-Amz-Security-Token",
+                          "X-Amz-User-Agent",
+                          "X-Amzn-Trace-Id"
+                        ],
+                        "allowCredentials": "<REDACTED>"
+                      },
+                      "integration": "AWS_PROXY"
+                    }
+                  }
+                ],
+                "layers": [
+                  "arn:aws:lambda:us-east-1:975050049562:layer:logging:4"
+                ],
+                "name": "todos-dev-hello",
+                "environment": {
+                  "NODE_OPTIONS": "--enable-source-maps"
+                },
+                "package": {},
+                "memory": 1024,
+                "timeout": 6,
+                "runtime": "nodejs18.x",
+                "vpc": {},
+                "versionLogicalId": "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I"
+              }
+            }
+          },
+          "configFileDirPath": "F:\\full_stack\\aws-serverless\\layers\\functions",
+          "config": {
+            "type": "self"
+          },
+          "options": {},
+          "stage": "dev",
+          "dashboard": null,
+          "logger": {
+            "namespace": "s:core:resolver:self",
+            "prefix": null,
+            "prefixColor": null
+          },
+          "_credentialsPromise": "<REDACTED>"
+        },
+        "resolvers": {}
+      },
       "sls": {
         "instance": {
           "credentials": "<REDACTED>",
@@ -530,7 +950,7 @@
                     "Properties": {
                       "Code": {
                         "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
-                        "S3Key": "serverless/todos/dev/1736845097932-2025-01-14T08:58:17.932Z/todos.zip"
+                        "S3Key": "serverless/todos/dev/1736819746339-2025-01-14T01:55:46.339Z/todos.zip"
                       },
                       "Handler": "src/handler.main",
                       "Runtime": "nodejs18.x",
@@ -549,21 +969,21 @@
                         ]
                       },
                       "Layers": [
-                        "arn:aws:lambda:us-east-1:975050049562:layer:helpers:2"
+                        "arn:aws:lambda:us-east-1:975050049562:layer:logging:4"
                       ]
                     },
                     "DependsOn": [
                       "HelloLogGroup"
                     ]
                   },
-                  "HelloLambdaVersionnjXF9x3kF0NL8eKKF6q0zvZQJxsz1S525ALQRKnrc6Y": {
+                  "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I": {
                     "Type": "AWS::Lambda::Version",
                     "DeletionPolicy": "Retain",
                     "Properties": {
                       "FunctionName": {
                         "Ref": "HelloLambdaFunction"
                       },
-                      "CodeSha256": "dB83gT28jjkrq/JvP/kBoanlCTjMVNQwX9a0aBMtd88="
+                      "CodeSha256": "yTgFR1qttreHT5aAeU+bAxHcHbQxMvJAB3wNqINqsag="
                     }
                   },
                   "ApiGatewayRestApi": {
@@ -684,7 +1104,7 @@
                       "HelloLambdaPermissionApiGateway"
                     ]
                   },
-                  "ApiGatewayDeployment1736845088354": {
+                  "ApiGatewayDeployment1736819736039": {
                     "Type": "AWS::ApiGateway::Deployment",
                     "Properties": {
                       "RestApiId": {
@@ -745,7 +1165,7 @@
                   "HelloLambdaFunctionQualifiedArn": {
                     "Description": "Current Lambda function version",
                     "Value": {
-                      "Ref": "HelloLambdaVersionnjXF9x3kF0NL8eKKF6q0zvZQJxsz1S525ALQRKnrc6Y"
+                      "Ref": "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I"
                     },
                     "Export": {
                       "Name": "sls-todos-dev-HelloLambdaFunctionQualifiedArn"
@@ -814,7 +1234,7 @@
                   }
                 ],
                 "layers": [
-                  "arn:aws:lambda:us-east-1:975050049562:layer:helpers:2"
+                  "arn:aws:lambda:us-east-1:975050049562:layer:logging:4"
                 ],
                 "name": "todos-dev-hello",
                 "environment": {
@@ -825,11 +1245,11 @@
                 "timeout": 6,
                 "runtime": "nodejs18.x",
                 "vpc": {},
-                "versionLogicalId": "HelloLambdaVersionnjXF9x3kF0NL8eKKF6q0zvZQJxsz1S525ALQRKnrc6Y"
+                "versionLogicalId": "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I"
               }
             }
           },
-          "configFileDirPath": "F:\\full_stack\\aws-serverless\\layers\\TS\\functions",
+          "configFileDirPath": "F:\\full_stack\\aws-serverless\\layers\\functions",
           "config": {
             "type": "sls"
           },
@@ -847,7 +1267,7 @@
       }
     },
     "composeServiceName": null,
-    "servicePath": "F:\\full_stack\\aws-serverless\\layers\\TS\\functions",
+    "servicePath": "F:\\full_stack\\aws-serverless\\layers\\functions",
     "serviceConfigFileName": "serverless.yaml",
     "service": {
       "service": "todos",
@@ -951,7 +1371,7 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
-                  "S3Key": "serverless/todos/dev/1736845097932-2025-01-14T08:58:17.932Z/todos.zip"
+                  "S3Key": "serverless/todos/dev/1736819746339-2025-01-14T01:55:46.339Z/todos.zip"
                 },
                 "Handler": "src/handler.main",
                 "Runtime": "nodejs18.x",
@@ -970,21 +1390,21 @@
                   ]
                 },
                 "Layers": [
-                  "arn:aws:lambda:us-east-1:975050049562:layer:helpers:2"
+                  "arn:aws:lambda:us-east-1:975050049562:layer:logging:4"
                 ]
               },
               "DependsOn": [
                 "HelloLogGroup"
               ]
             },
-            "HelloLambdaVersionnjXF9x3kF0NL8eKKF6q0zvZQJxsz1S525ALQRKnrc6Y": {
+            "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "HelloLambdaFunction"
                 },
-                "CodeSha256": "dB83gT28jjkrq/JvP/kBoanlCTjMVNQwX9a0aBMtd88="
+                "CodeSha256": "yTgFR1qttreHT5aAeU+bAxHcHbQxMvJAB3wNqINqsag="
               }
             },
             "ApiGatewayRestApi": {
@@ -1105,7 +1525,7 @@
                 "HelloLambdaPermissionApiGateway"
               ]
             },
-            "ApiGatewayDeployment1736845088354": {
+            "ApiGatewayDeployment1736819736039": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -1166,7 +1586,7 @@
             "HelloLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "HelloLambdaVersionnjXF9x3kF0NL8eKKF6q0zvZQJxsz1S525ALQRKnrc6Y"
+                "Ref": "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I"
               },
               "Export": {
                 "Name": "sls-todos-dev-HelloLambdaFunctionQualifiedArn"
@@ -1235,7 +1655,7 @@
             }
           ],
           "layers": [
-            "arn:aws:lambda:us-east-1:975050049562:layer:helpers:2"
+            "arn:aws:lambda:us-east-1:975050049562:layer:logging:4"
           ],
           "name": "todos-dev-hello",
           "environment": {
@@ -1246,18 +1666,18 @@
           "timeout": 6,
           "runtime": "nodejs18.x",
           "vpc": {},
-          "versionLogicalId": "HelloLambdaVersionnjXF9x3kF0NL8eKKF6q0zvZQJxsz1S525ALQRKnrc6Y"
+          "versionLogicalId": "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I"
         }
       }
     },
-    "serviceRawFile": "service: todos\r\n\r\nframeworkVersion: '4'\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: us-east-1\r\n  stage: ${opt:stage, 'dev'}\r\n\r\nplugins:\r\n  - serverless-offline\r\n\r\nfunctions:\r\n  hello:\r\n    handler: src/handler.main\r\n    events:\r\n      - http:\r\n          path: hello\r\n          method: get\r\n          cors: true\r\n    layers:\r\n#      - ${cf:layers-${self:provider.stage}.LoggingLayerExport}\r\n       - arn:aws:lambda:us-east-1:975050049562:layer:helpers:2\r\n",
+    "serviceRawFile": "service: todos\r\n\r\nframeworkVersion: '4'\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: us-east-1\r\n  stage: ${opt:stage, 'dev'}\r\n\r\nplugins:\r\n  - serverless-offline\r\n\r\nfunctions:\r\n  hello:\r\n    handler: src/handler.main\r\n    events:\r\n      - http:\r\n          path: hello\r\n          method: get\r\n          cors: true\r\n    layers:\r\n      - ${cf:layers-${self:provider.stage}.LoggingLayerExport}",
     "command": [
       "deploy"
     ],
     "options": {},
     "error": null,
     "params": {},
-    "machineId": "ce5a992719f88fcbfd0c7488da220435",
+    "machineId": "f52e99205c11fe906f58670fbd8457f2",
     "stage": "dev",
     "accessKeyV2": "<REDACTED>",
     "accessKeyV1": "<REDACTED>",
@@ -1283,21 +1703,21 @@
     "versionSf": "4.4.18",
     "serviceProviderAwsCfStackName": "todos-dev",
     "integrations": {},
-    "serviceUniqueId": "arn:aws:cloudformation:us-east-1:975050049562:stack/todos-dev/bb566830-d255-11ef-888c-0e1173392d2d",
-    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:975050049562:stack/todos-dev/bb566830-d255-11ef-888c-0e1173392d2d",
-    "serviceProviderAwsCfStackCreated": "2025-01-14T08:58:32.995Z",
+    "serviceUniqueId": "arn:aws:cloudformation:us-east-1:975050049562:stack/todos-dev/b3aa4d80-d21a-11ef-8bfe-0ea764f12005",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:975050049562:stack/todos-dev/b3aa4d80-d21a-11ef-8bfe-0ea764f12005",
+    "serviceProviderAwsCfStackCreated": "2025-01-14T01:55:59.822Z",
     "serviceProviderAwsCfStackUpdated": null,
     "serviceProviderAwsCfStackStatus": "CREATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "HelloLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-east-1:975050049562:function:todos-dev-hello:10",
+        "OutputValue": "arn:aws:lambda:us-east-1:975050049562:function:todos-dev-hello:1",
         "Description": "Current Lambda function version",
         "ExportName": "sls-todos-dev-HelloLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "ServiceEndpoint",
-        "OutputValue": "https://iu2y0brs2b.execute-api.us-east-1.amazonaws.com/dev",
+        "OutputValue": "https://8z1qucl9nd.execute-api.us-east-1.amazonaws.com/dev",
         "Description": "URL of the service endpoint",
         "ExportName": "sls-todos-dev-ServiceEndpoint"
       },

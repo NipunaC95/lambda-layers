@@ -91,7 +91,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
-          "S3Key": "serverless/todos/dev/1736845097932-2025-01-14T08:58:17.932Z/todos.zip"
+          "S3Key": "serverless/todos/dev/1736819746339-2025-01-14T01:55:46.339Z/todos.zip"
         },
         "Handler": "src/handler.main",
         "Runtime": "nodejs18.x",
@@ -110,21 +110,21 @@
           ]
         },
         "Layers": [
-          "arn:aws:lambda:us-east-1:975050049562:layer:helpers:2"
+          "arn:aws:lambda:us-east-1:975050049562:layer:logging:4"
         ]
       },
       "DependsOn": [
         "HelloLogGroup"
       ]
     },
-    "HelloLambdaVersionnjXF9x3kF0NL8eKKF6q0zvZQJxsz1S525ALQRKnrc6Y": {
+    "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "HelloLambdaFunction"
         },
-        "CodeSha256": "dB83gT28jjkrq/JvP/kBoanlCTjMVNQwX9a0aBMtd88="
+        "CodeSha256": "yTgFR1qttreHT5aAeU+bAxHcHbQxMvJAB3wNqINqsag="
       }
     },
     "ApiGatewayRestApi": {
@@ -245,7 +245,7 @@
         "HelloLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1736845088354": {
+    "ApiGatewayDeployment1736819736039": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -306,7 +306,7 @@
     "HelloLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "HelloLambdaVersionnjXF9x3kF0NL8eKKF6q0zvZQJxsz1S525ALQRKnrc6Y"
+        "Ref": "HelloLambdaVersion4HXX0XpVubJdSdjupqGTJeGuhDcK2QHyV5HfuA7I"
       },
       "Export": {
         "Name": "sls-todos-dev-HelloLambdaFunctionQualifiedArn"

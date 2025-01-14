@@ -9,13 +9,13 @@ provider:
   stage: ${opt:stage, 'dev'}
 
 layers:
-  helpers:
+  logging:
     path: logging
 
 resources:
-   Outputs:
-     HelpersLayerExport:
-       Value:
-         Ref: HelpersLambdaLayer
-       Export:
-         Name: HelpersLambdaLayer
+  Outputs:
+    LoggingLayerExport:
+      Value:
+        Ref: LoggingLambdaLayer
+      Export:
+        Name: LoggingLambdaLayer
