@@ -1,0 +1,47 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "The AWS CloudFormation template for this Serverless application",
+  "Resources": {
+    "HelpersLambdaLayer": {
+      "Type": "AWS::Lambda::LayerVersion",
+      "Properties": {
+        "Content": {
+          "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
+          "S3Key": "serverless/layers/dev/1736844493527-2025-01-14T08:48:13.527Z/helpers.zip"
+        },
+        "LayerName": "helpers"
+      }
+    }
+  },
+  "Outputs": {
+    "ServerlessDeploymentBucketName": {
+      "Value": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
+      "Export": {
+        "Name": "sls-layers-dev-ServerlessDeploymentBucketName"
+      }
+    },
+    "HelpersLambdaLayerQualifiedArn": {
+      "Description": "Current Lambda layer version",
+      "Value": {
+        "Ref": "HelpersLambdaLayer"
+      },
+      "Export": {
+        "Name": "sls-layers-dev-HelpersLambdaLayerQualifiedArn"
+      }
+    },
+    "HelpersLambdaLayerHash": {
+      "Description": "Current Lambda layer hash",
+      "Value": "41bcc553bd37389e5f6c169975cefe94c72282c2",
+      "Export": {
+        "Name": "sls-layers-dev-HelpersLambdaLayerHash"
+      }
+    },
+    "HelpersLambdaLayerS3Key": {
+      "Description": "Current Lambda layer S3Key",
+      "Value": "serverless/layers/dev/1736844493527-2025-01-14T08:48:13.527Z/helpers.zip",
+      "Export": {
+        "Name": "sls-layers-dev-HelpersLambdaLayerS3Key"
+      }
+    }
+  }
+}
