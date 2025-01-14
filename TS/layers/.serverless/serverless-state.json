@@ -19,7 +19,7 @@
             "Properties": {
               "Content": {
                 "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
-                "S3Key": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z/helpers.zip"
+                "S3Key": "serverless/layers/dev/1736846484066-2025-01-14T09:21:24.066Z/helpers.zip"
               },
               "LayerName": "helpers"
             }
@@ -43,14 +43,14 @@
           },
           "HelpersLambdaLayerHash": {
             "Description": "Current Lambda layer hash",
-            "Value": "e3bd288e749009a043201ea6ca39ee25457663b9",
+            "Value": "2b1d258e8d1da69c8e1d4556efaaf541c1b08071",
             "Export": {
               "Name": "sls-layers-dev-HelpersLambdaLayerHash"
             }
           },
           "HelpersLambdaLayerS3Key": {
             "Description": "Current Lambda layer S3Key",
-            "Value": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z/helpers.zip",
+            "Value": "serverless/layers/dev/1736846484066-2025-01-14T09:21:24.066Z/helpers.zip",
             "Export": {
               "Name": "sls-layers-dev-HelpersLambdaLayerS3Key"
             }
@@ -91,7 +91,7 @@
       },
       "layers": {
         "helpers": {
-          "path": "logging",
+          "path": "helpers",
           "package": {
             "artifact": "F:\\full_stack\\aws-serverless\\layers\\TS\\layers\\.serverless\\helpers.zip"
           }
@@ -108,7 +108,7 @@
     }
   },
   "package": {
-    "artifactDirectoryName": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z",
+    "artifactDirectoryName": "serverless/layers/dev/1736846484066-2025-01-14T09:21:24.066Z",
     "artifact": ""
   }
 }

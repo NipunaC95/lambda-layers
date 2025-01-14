@@ -1,7 +1,7 @@
 {
   "name": "helpers",
   "version": "1.0.0",
-  "main": "../logging/dist/index.js",
+  "main": "../helpers/dist/index.js",
   "scripts": {
     "compile": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"

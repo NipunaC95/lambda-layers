@@ -1845,8 +1845,8 @@ hasown@^2.0.2:
   dependencies:
     function-bind "^1.1.2"
 
-"helpers@file:../layers/logging/nodejs/node_modules/helpers/dist":
-  resolved "file:../layers/logging/nodejs/node_modules/helpers/dist"
+"helpers@file:../layers/helpers/nodejs/node_modules/helpers/dist":
+  resolved "file:../layers/helpers/nodejs/node_modules/helpers/dist"
 
 human-signals@^5.0.0:
   version "5.0.0"

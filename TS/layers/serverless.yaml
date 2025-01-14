@@ -10,7 +10,7 @@ provider:
 
 layers:
   helpers:
-    path: logging
+    path: helpers
 
 resources:
    Outputs:

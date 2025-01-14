@@ -6,7 +6,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     //"rootDir": "./",
-    "outDir": "logging/nodejs/node_modules/helpers/dist/.",
+    "outDir": "helpers/nodejs/node_modules/helpers/dist/.",
     "target": "es2017",
     "declaration": true,
   },

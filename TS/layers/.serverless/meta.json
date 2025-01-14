@@ -27,7 +27,7 @@
                     "Properties": {
                       "Content": {
                         "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
-                        "S3Key": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z/helpers.zip"
+                        "S3Key": "serverless/layers/dev/1736846484066-2025-01-14T09:21:24.066Z/helpers.zip"
                       },
                       "LayerName": "helpers"
                     }
@@ -51,14 +51,14 @@
                   },
                   "HelpersLambdaLayerHash": {
                     "Description": "Current Lambda layer hash",
-                    "Value": "e3bd288e749009a043201ea6ca39ee25457663b9",
+                    "Value": "2b1d258e8d1da69c8e1d4556efaaf541c1b08071",
                     "Export": {
                       "Name": "sls-layers-dev-HelpersLambdaLayerHash"
                     }
                   },
                   "HelpersLambdaLayerS3Key": {
                     "Description": "Current Lambda layer S3Key",
-                    "Value": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z/helpers.zip",
+                    "Value": "serverless/layers/dev/1736846484066-2025-01-14T09:21:24.066Z/helpers.zip",
                     "Export": {
                       "Name": "sls-layers-dev-HelpersLambdaLayerS3Key"
                     }
@@ -76,7 +76,7 @@
             },
             "layers": {
               "helpers": {
-                "path": "logging",
+                "path": "helpers",
                 "package": {
                   "artifact": "F:\\full_stack\\aws-serverless\\layers\\TS\\layers\\.serverless\\helpers.zip"
                 }
@@ -132,7 +132,7 @@
                     "Properties": {
                       "Content": {
                         "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
-                        "S3Key": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z/helpers.zip"
+                        "S3Key": "serverless/layers/dev/1736846484066-2025-01-14T09:21:24.066Z/helpers.zip"
                       },
                       "LayerName": "helpers"
                     }
@@ -156,14 +156,14 @@
                   },
                   "HelpersLambdaLayerHash": {
                     "Description": "Current Lambda layer hash",
-                    "Value": "e3bd288e749009a043201ea6ca39ee25457663b9",
+                    "Value": "2b1d258e8d1da69c8e1d4556efaaf541c1b08071",
                     "Export": {
                       "Name": "sls-layers-dev-HelpersLambdaLayerHash"
                     }
                   },
                   "HelpersLambdaLayerS3Key": {
                     "Description": "Current Lambda layer S3Key",
-                    "Value": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z/helpers.zip",
+                    "Value": "serverless/layers/dev/1736846484066-2025-01-14T09:21:24.066Z/helpers.zip",
                     "Export": {
                       "Name": "sls-layers-dev-HelpersLambdaLayerS3Key"
                     }
@@ -181,7 +181,7 @@
             },
             "layers": {
               "helpers": {
-                "path": "logging",
+                "path": "helpers",
                 "package": {
                   "artifact": "F:\\full_stack\\aws-serverless\\layers\\TS\\layers\\.serverless\\helpers.zip"
                 }
@@ -239,7 +239,7 @@
               "Properties": {
                 "Content": {
                   "S3Bucket": "serverless-framework-deployments-us-east-1-4820ab9a-ba9a",
-                  "S3Key": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z/helpers.zip"
+                  "S3Key": "serverless/layers/dev/1736846484066-2025-01-14T09:21:24.066Z/helpers.zip"
                 },
                 "LayerName": "helpers"
               }
@@ -263,14 +263,14 @@
             },
             "HelpersLambdaLayerHash": {
               "Description": "Current Lambda layer hash",
-              "Value": "e3bd288e749009a043201ea6ca39ee25457663b9",
+              "Value": "2b1d258e8d1da69c8e1d4556efaaf541c1b08071",
               "Export": {
                 "Name": "sls-layers-dev-HelpersLambdaLayerHash"
               }
             },
             "HelpersLambdaLayerS3Key": {
               "Description": "Current Lambda layer S3Key",
-              "Value": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z/helpers.zip",
+              "Value": "serverless/layers/dev/1736846484066-2025-01-14T09:21:24.066Z/helpers.zip",
               "Export": {
                 "Name": "sls-layers-dev-HelpersLambdaLayerS3Key"
               }
@@ -288,7 +288,7 @@
       },
       "layers": {
         "helpers": {
-          "path": "logging",
+          "path": "helpers",
           "package": {
             "artifact": "F:\\full_stack\\aws-serverless\\layers\\TS\\layers\\.serverless\\helpers.zip"
           }
@@ -308,7 +308,7 @@
         "Resources": {}
       }
     },
-    "serviceRawFile": "service: layers\r\n\r\nframeworkVersion: '4'\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: us-east-1\r\n  stage: ${opt:stage, 'dev'}\r\n\r\nlayers:\r\n  helpers:\r\n    path: logging\r\n\r\nresources:\r\n   Outputs:\r\n     HelpersLayerExport:\r\n       Value:\r\n         Ref: HelpersLambdaLayer\r\n       Export:\r\n         Name: HelpersLambdaLayer",
+    "serviceRawFile": "service: layers\r\n\r\nframeworkVersion: '4'\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: us-east-1\r\n  stage: ${opt:stage, 'dev'}\r\n\r\nlayers:\r\n  helpers:\r\n    path: helpers\r\n\r\nresources:\r\n   Outputs:\r\n     HelpersLayerExport:\r\n       Value:\r\n         Ref: HelpersLambdaLayer\r\n       Export:\r\n         Name: HelpersLambdaLayer",
     "command": [
       "deploy"
     ],
@@ -344,29 +344,29 @@
     "serviceUniqueId": "arn:aws:cloudformation:us-east-1:975050049562:stack/layers-dev/a4dca6d0-d252-11ef-a18e-12e4cf62e153",
     "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:975050049562:stack/layers-dev/a4dca6d0-d252-11ef-a18e-12e4cf62e153",
     "serviceProviderAwsCfStackCreated": "2025-01-14T08:36:26.792Z",
-    "serviceProviderAwsCfStackUpdated": "2025-01-14T09:14:16.810Z",
+    "serviceProviderAwsCfStackUpdated": "2025-01-14T09:21:40.081Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "HelpersLambdaLayerS3Key",
-        "OutputValue": "serverless/layers/dev/1736846041455-2025-01-14T09:14:01.455Z/helpers.zip",
+        "OutputValue": "serverless/layers/dev/1736846484066-2025-01-14T09:21:24.066Z/helpers.zip",
         "Description": "Current Lambda layer S3Key",
         "ExportName": "sls-layers-dev-HelpersLambdaLayerS3Key"
       },
       {
         "OutputKey": "HelpersLayerExport",
-        "OutputValue": "arn:aws:lambda:us-east-1:975050049562:layer:helpers:4",
+        "OutputValue": "arn:aws:lambda:us-east-1:975050049562:layer:helpers:6",
         "ExportName": "HelpersLambdaLayer"
       },
       {
         "OutputKey": "HelpersLambdaLayerQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-east-1:975050049562:layer:helpers:4",
+        "OutputValue": "arn:aws:lambda:us-east-1:975050049562:layer:helpers:6",
         "Description": "Current Lambda layer version",
         "ExportName": "sls-layers-dev-HelpersLambdaLayerQualifiedArn"
       },
       {
         "OutputKey": "HelpersLambdaLayerHash",
-        "OutputValue": "e3bd288e749009a043201ea6ca39ee25457663b9",
+        "OutputValue": "2b1d258e8d1da69c8e1d4556efaaf541c1b08071",
         "Description": "Current Lambda layer hash",
         "ExportName": "sls-layers-dev-HelpersLambdaLayerHash"
       },
